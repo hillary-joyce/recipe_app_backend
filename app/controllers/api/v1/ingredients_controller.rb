@@ -1,18 +1,36 @@
 class Api::V1::IngredientsController < ApplicationController
-  def index
-    @ingredients = Ingredient.all
-    render json: @ingredients
-  end
+  before_action :find_ingredient, only: [:show, :update, :destroy]
 
-  def show
-  end
+    def index
+      @ingredients = Ingredient.all
+      render json: @ingredients
+    end
 
-  def create
-  end
+    def show
+      render json: @ingredient
+    end
 
-  def update
-  end
+    def create
+      @category = Ingredient.create(ingredient_params)
+      render json: @category
+    end
 
-  def delete
-  end
+    def update
+      @ingredient.update(ingredient_params)
+      render json: @ingredient
+    end
+
+    def destroy
+      render json: Ingredient.destroy(@ingredient)
+    end
+
+    private
+
+    def ingredient_params
+      params.require(:ingredient).permit(:name)
+    end
+
+    def find_ingredient
+      @ingredient = Ingredient.find(params[:id])
+    end
 end
