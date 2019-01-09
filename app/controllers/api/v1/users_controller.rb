@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :find_user, only: [:show]
+    before_action :find_user, only: [:show, :update, :destroy]
 
     def index
       @users = User.all
@@ -12,18 +12,22 @@ class Api::V1::UsersController < ApplicationController
 
     def create
       @user = User.create(user_params)
+      render json: @user
     end
 
     def update
+      @user.update(user_params)
+      render json: @user
     end
 
-    def delete
+    def destroy
+      render json: User.destroy(@user)
     end
 
     private
 
     def user_params
-      params.permit(:name, :password)
+      params.require(:user).permit(:name, :password)
     end
 
     def find_user
