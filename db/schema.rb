@@ -12,33 +12,36 @@
 
 ActiveRecord::Schema.define(version: 2019_01_08_211938) do
 
-  create_table "categories", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "ingredients", force: :cascade do |t|
+  create_table "ingredients", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipe_categories", force: :cascade do |t|
+  create_table "recipe_categories", id: :serial, force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipe_ingredients", force: :cascade do |t|
+  create_table "recipe_ingredients", id: :serial, force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.string "amount"
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_01_08_211938) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipes", force: :cascade do |t|
+  create_table "recipes", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "cooking_time"
     t.string "nutrition_info"
@@ -56,9 +59,9 @@ ActiveRecord::Schema.define(version: 2019_01_08_211938) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
