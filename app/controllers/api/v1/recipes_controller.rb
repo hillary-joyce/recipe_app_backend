@@ -1,5 +1,6 @@
 class Api::V1::RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :update, :destroy]
+  skip_before_action :authorized
 
     def index
       @recipes = Recipe.all

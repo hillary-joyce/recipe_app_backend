@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user1 = User.create(name: "Paul", password: "cool")
-user2 = User.create(name: "Mary", password: "pw")
-user3 = User.create(name: "Sandy", password: "pw")
-user4 = User.create(name: "Mel", password: "pw")
-user5 = User.create(name: "Sue", password: "pw")
-user6 = User.create(name: "Noel", password: "pw")
+user1 = User.create(username: "Paul", password: "cool")
+user2 = User.create(username: "Mary", password: "pw")
+user3 = User.create(username: "Sandy", password: "pw")
+user4 = User.create(username: "Mel", password: "pw")
+user5 = User.create(username: "Sue", password: "pw")
+user6 = User.create(username: "Noel", password: "pw")
 
 recipe1 = Recipe.create(name: "bread", user: user1)
 recipe2 = Recipe.create(name: "swiss roll", user: user2)
@@ -43,6 +43,6 @@ cat3 = Category.create(name: "sweets")
 cat4 = Category.create(name: "gluten-free")
 
 RecipeCategory.create(category: cat1, recipe: recipe1)
-RecipeCategory.create(category: cat2, recipe: recipe1)
-RecipeCategory.create(category: cat3, recipe: recipe4)
-RecipeCategory.create(category: cat3, recipe: recipe5)
+RecipeCategory.create(category: cat2, recipe: recipe2)
+RecipeCategory.create(category: cat3, recipe: recipe3)
+RecipeCategory.create(category: cat4, recipe: recipe4)

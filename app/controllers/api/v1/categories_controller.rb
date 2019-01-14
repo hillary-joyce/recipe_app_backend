@@ -1,5 +1,6 @@
 class Api::V1::CategoriesController < ApplicationController
   before_action :find_category, only: [:update, :show, :destroy]
+  skip_before_action :authorized
 
   def index
     @categories = Category.all
@@ -24,7 +25,9 @@ class Api::V1::CategoriesController < ApplicationController
     render json: Category.destroy(@category)
   end
 
+
   private
+
 
   def category_params
     params.require(:category).permit(:name)
@@ -33,4 +36,5 @@ class Api::V1::CategoriesController < ApplicationController
   def find_category
     @category = Category.find(params[:id])
   end
+
 end
