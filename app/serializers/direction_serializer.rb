@@ -1,5 +1,5 @@
 class DirectionSerializer < ActiveModel::Serializer
-  attributes :id, :step, :recipe, :text
+  attributes :id, :step, :text
 
   belongs_to :recipe
 end

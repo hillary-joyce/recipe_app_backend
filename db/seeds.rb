@@ -35,6 +35,13 @@ recipe18 = Recipe.create(name: "Chicken Tacos", user: user4, cooking_time: "50 m
 recipe19 = Recipe.create(name: "Traditional Jaffa Cake", user: user4, cooking_time: "2 hr", nutrition_info: "5g fat, 155 calories")
 recipe20 = Recipe.create(name: "Hungarian Kugelhopf", user: user5, cooking_time: "3.5 hr", nutrition_info: "11g fat, 419 calories")
 
+
+Direction.create(recipe: recipe2, step: 1, text: "Preheat oven to 375")
+Direction.create(recipe: recipe2, step: 2, text: "In a large bowl, mix the milk and eggs and flour")
+Direction.create(recipe: recipe2, step: 1, text: "Place ingredients in a 9x4 baking sheet")
+Direction.create(recipe: recipe2, step: 1, text: "Cook for 45 minutes")
+Direction.create(recipe: recipe2, step: 1, text: "Cool for 25 minutes and frost. Serve warm")
+
 Favorite.create(user: user1, recipe: recipe2)
 Favorite.create(user: user1, recipe: recipe3)
 Favorite.create(user: user1, recipe: recipe4)
